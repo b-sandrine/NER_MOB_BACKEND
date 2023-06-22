@@ -23,6 +23,7 @@ app.get('/',(req,res) => {
 
 app.use('/api/users',userRoutes)
 app.use('/api/candidates', candidateRoutes)
+app.use('/api/votes/',votesRoutes);
 
 app.listen(PORT, function() {
     console.log(`app running on http://localhost:${PORT}`);

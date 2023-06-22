@@ -26,7 +26,7 @@ const candidateSchema = mongoose.Schema({
     }
 })
 
-const candidate = mongoose.model("candidates", candidateSchema);
+const Candidate = mongoose.model("candidates", candidateSchema);
 
 const validCandidate = Joi.object({
     fullnames: Joi.string().min(5).max(50).required(),
@@ -37,4 +37,4 @@ const validCandidate = Joi.object({
     profile: Joi.string().required()
 })
 
-module.exports = {candidate, validCandidate};
+module.exports = {Candidate, validCandidate};

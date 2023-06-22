@@ -1,27 +1,25 @@
 const { Candidate, validCandidate } = require('../models/candidate.model')
 require('dotenv').config()
 
-const KEY = process.env.SECRET_KEY;
-
 const addCandidate = async (req, res) => {
     try {
-        const CandidateData = req.body;
-        const { error } = validCandidate.validate(CandidateData)
+        const candidateData = req.body;
+        console.log(candidateData);
+        const { error } = validCandidate.validate(candidateData)
 
         if (error) {
             return res.status(400).json({ error: error.details[0].message })
         }
         else {
-            const CandidateExist = await Candidate.findOne({ email: CandidateData.email })
+            const candidateExist = await Candidate.findOne({ email: candidateData.email })
 
-            if (CandidateExist) {
+            if (candidateExist) {
                 return res.status(400).json({
-                    error: "Candidate already exists",
-                    Candidate: CandidateExist
+                    error: "Candidate already exists"
                 })
             }
-            const Candidate = new Candidate(CandidateData);
-            Candidate.save()
+            const candidateToBeSaved = new Candidate(candidateData);
+            candidateToBeSaved.save()
                 .then((result) => {
                     return res.status(201).json(result)
                 })

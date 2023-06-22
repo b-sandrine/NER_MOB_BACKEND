@@ -12,6 +12,7 @@ app.use(cors())
 require('./src/config/db')
 const userRoutes = require('./src/routes/user.route')
 const candidateRoutes = require('./src/routes/candidate.routes');
+const votesRoutes = require('./src/routes/votes.routes');
 const swagger = require('./swagger')
 
 swagger(app);

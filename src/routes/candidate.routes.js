@@ -28,6 +28,6 @@ const router = express.Router();
  *               $ref: '#/components/schemas/Candidate'
  */
 router.post('/create', addCandidate);
-router.post('/list', listCandidates);
+router.get('/list', listCandidates);
 
 module.exports = router;

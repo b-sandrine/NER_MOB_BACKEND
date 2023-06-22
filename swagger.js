@@ -28,13 +28,10 @@ const options = {
                         email: {
                             type: 'string'
                         },
-                        NID: {
+                        nid: {
                             type: 'integer'
                         },
                         phoneNumber: {
-                            type: 'string'
-                        },
-                        username: {
                             type: 'string'
                         },
                         password: {
@@ -42,49 +39,25 @@ const options = {
                         },
                     },
                 },
-                Vehicle: {
-                    type: 'object',
-                    properties: {
-                        chasisNumber: {
-                            type: 'integer'
-                        },
-                        manufacturer: {
-                            type: 'string'
-                        },
-                        manufacturedYear: {
-                            type: 'integer'
-                        },
-                        price: {
-                            type: 'integer'
-                        },
-                        plateNumber: {
-                            type: 'string'
-                        },
-                        model: {
-                            type: 'string'
-                        },
-                        createdBy: {
-                            type: 'string',
-                            description: 'Foreign key referencing the User model'
-                        }
-                    }
-                },
-                Owner: {
+                Candidate: {
                     type: 'object',
                     properties: {
                         fullnames: {
                             type: 'string'
                         },
+                        email: {
+                            type: 'string'
+                        },
                         nid: {
                             type: 'integer'
                         },
-                        phoneNumber : {
+                        phoneNumber: {
                             type: 'string'
                         },
-                        address: {
+                        profile: {
                             type: 'string'
-                        }
-                    }
+                        },
+                    },
                 }
             },
         },

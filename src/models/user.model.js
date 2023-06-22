@@ -5,23 +5,25 @@ const userSchema = mongoose.Schema({
     fullnames: {
         type: String
     },
-    email : {
+    address: {
         type: String
     },
-    NID: {
-        type: Number
+    email : {
+        type: String
     },
     phoneNumber: {
         type: String
     },
-    address: {
-        type: String
-    },
-    username: {
-        type: String
+    nid: {
+        type: Number
     },
     password: {
         type: String
+    },
+    role: {
+        type: String,
+        enum: ["admin","voter"],
+        default: "voter"
     }
 })
 
@@ -30,11 +32,11 @@ const User = mongoose.model("users", userSchema);
 const validUser = Joi.object({
     fullnames: Joi.string().min(5).max(50).required(),
     email: Joi.string().email().required(),
-    NID: Joi.number().integer().min(1190000000000000).max(1200700000000000).required(),
+    nid: Joi.number().integer().min(1190000000000000).max(1200700000000000).required(),
     phoneNumber: Joi.string().required(),
     address: Joi.string().required(),
-    username: Joi.string().required(),
     password: Joi.string().min(6).required(),
+    role: Joi.string().valid('admin','voter').default('voter')
 })
 
 const validLoginUser = Joi.object({

@@ -10,6 +10,7 @@ const voteSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'candidates',
     required: true,
+    unique: true
   },
 });
 

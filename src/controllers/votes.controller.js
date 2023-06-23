@@ -55,7 +55,7 @@ const getVotes = async (req, res) => {
 const updateVotes = async (req, res) => {
     const data = req.body;
 
-    const isValidCandidate = data._id;
+    const isValidCandidate = data.id;
     if (!isValidCandidate) {
         res.status(400).json({ error: "Candidate Not Found" })
         return;

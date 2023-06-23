@@ -4,7 +4,7 @@ const express = require('express')
 const router = express.Router();
 
 router.post('/create',createVotes);
-router.put('/update', updateVotes);
+router.put('/update/:id', updateVotes);
 router.get('/number/:id',getVotes)
 
 module.exports = router;

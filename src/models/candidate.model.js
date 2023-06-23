@@ -20,10 +20,10 @@ const candidateSchema = mongoose.Schema({
         type: Number,
         unique: true
     },
-    profile: {
-        type: String,
-        required: true
-    }
+    // profile: {
+    //     type: String,
+    //     required: true
+    // }
 })
 
 const Candidate = mongoose.model("candidates", candidateSchema);
@@ -34,7 +34,7 @@ const validCandidate = Joi.object({
     nid: Joi.number().integer().min(1190000000000000).max(1200700000000000).required(),
     phoneNumber: Joi.string().required(),
     address: Joi.string().required(),
-    profile: Joi.string().required()
+    // profile: Joi.string().required()
 })
 
 module.exports = {Candidate, validCandidate};
